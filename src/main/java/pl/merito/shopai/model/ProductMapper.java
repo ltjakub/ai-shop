@@ -1,8 +1,5 @@
 package pl.merito.shopai.model;
 
-import org.springframework.core.io.ByteArrayResource;
-import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 
 public class ProductMapper {
@@ -14,6 +11,9 @@ public class ProductMapper {
         productResponse.setDescription(product.getDescription());
         productResponse.setPrice(product.getPrice());
         productResponse.setImage(product.getImage());
+        productResponse.setCategory(product.getCategory());
+        productResponse.setColor(product.getColor());
+        productResponse.setStyle(product.getStyle());
 
         return productResponse;
     }
@@ -26,10 +26,12 @@ public class ProductMapper {
             product.setDescription(productRequest.getDescription());
             product.setPrice(productRequest.getPrice());
             product.setImage(productRequest.getImage().getBytes());
+            product.setCategory(productRequest.getCategory());
+            product.setColor(productRequest.getColor());
+            product.setStyle(productRequest.getStyle());
             return product;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 }

@@ -1,6 +1,5 @@
 package pl.merito.shopai.config;
 
-import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
@@ -31,7 +30,7 @@ public class SecurityConfiguration {
                 .requestMatchers("/api/v1/auth/**")
                 .permitAll()
                 .requestMatchers("/api/v1/product/**")
-                .authenticated()
+                .permitAll()
                 .requestMatchers(PathRequest.toH2Console())
                 .permitAll()
                 .anyRequest()
