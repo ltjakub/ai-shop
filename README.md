@@ -54,3 +54,10 @@ GET http://localhost:8080/api/v1/product/{product-id}
 ```
 
 It returns image as byte array so you have to convert it somehow on front end to image XD I don't know how to solve it better
+
+DB available at:
+```
+http://localhost:8080/h2-console/
+username: sa
+password: 
+```
