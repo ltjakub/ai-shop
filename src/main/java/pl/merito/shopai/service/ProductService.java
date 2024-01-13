@@ -7,7 +7,6 @@ import pl.merito.shopai.model.ProductMapper;
 import pl.merito.shopai.model.ProductRequest;
 import pl.merito.shopai.model.ProductResponse;
 import pl.merito.shopai.repository.ProductRepository;
-import pl.merito.shopai.util.exception.UserNotFoundException;
 
 import java.util.List;
 import java.util.UUID;
@@ -30,7 +29,4 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    public ProductResponse findById(UUID uuid) {
-       return ProductMapper.map(productRepository.findById(uuid).orElseThrow(UserNotFoundException::new));
-    }
 }

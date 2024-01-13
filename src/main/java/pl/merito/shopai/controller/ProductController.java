@@ -27,11 +27,6 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-    @GetMapping("/{productId}")
-    public ProductResponse getProductImage(@PathVariable UUID productId) {
-        return productService.findById(productId);
-    }
-
     @PostMapping
     public void createProduct(@ModelAttribute ProductRequest request) {
         productService.createProduct(request);

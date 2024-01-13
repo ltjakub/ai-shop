@@ -9,16 +9,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import pl.merito.shopai.util.error.ApiError;
 import pl.merito.shopai.util.error.ErrorStatus;
-import pl.merito.shopai.util.exception.UserNotFoundException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-
-    @ExceptionHandler(UserNotFoundException.class)
-    public final ResponseEntity<Object> handleUserNotFoundException(Exception e) {
-        ApiError apiError = new ApiError(ErrorStatus.NOT_FOUND, "User not found.");
-        return new ResponseEntity<>(apiError, new HttpHeaders(), HttpStatus.NOT_FOUND);
-    }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public final ResponseEntity<Object> handleMethodArgumentNotValidException(Exception e) {
